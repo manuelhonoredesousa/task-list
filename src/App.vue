@@ -4,7 +4,7 @@
     <v-navigation-drawer
       v-model="drawer"
       app
-      color="rgb(53, 52, 52)"
+      color="red"
       dark
     >
       <v-list-item>
