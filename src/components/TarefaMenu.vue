@@ -22,10 +22,11 @@
     <!--  -->
     <DialogEdit
       v-if="items[0].state"
-      :title="task.title"
       @dialogState="items[0].state = false"
-      @dialogAction="edit(task.title)"
+      @dialogAction="edit()"
+      :task="task"
     />
+      <!-- @dialogAction="edit()" -->
     <!--  -->
     <DialogDelete
       v-if="items[1].state"
@@ -76,8 +77,8 @@ export default {
       this.$store.commit("deteleTask", id);
       this.items[1].state = false;
     },
-    edit(title) {
-      alert(title);
+    edit() {
+      this.items[0].state = false;
     },
   },
 };

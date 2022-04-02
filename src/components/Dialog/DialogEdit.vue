@@ -1,22 +1,24 @@
 <template>
   <div>
     <v-dialog v-model="dialog" persistent max-width="290">
-
       <v-card>
         <v-card-title class="text-h5"> Editar Tarefa </v-card-title>
         <v-card-text>Insira a tarefa que substituirá a outra.</v-card-text>
-        <input type="text" :v-model="title">
-        <v-text-field class="px-3"
-          v-model="inputTask"
+        <v-text-field
+          class="px-3"
           label="Editar Tarefa"
-          placeholder="Qual Tarefa Deseja Actualizar"
+          placeholder="Actualize a Tarefa"
           outlined
-          
+          v-model="title"
         ></v-text-field>
-        <v-card-actions> 
+        <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn text @click="$emit('dialogState')"> Cancelar </v-btn>
-          <v-btn color="primary" text @click="$emit('dialogAction')">
+          <v-btn
+            color="primary"
+            text
+            @click="functionEdit()"
+          >
             Actualizar
           </v-btn>
         </v-card-actions>
@@ -30,9 +32,19 @@ export default {
   name: "Dialog-Edit",
   data: () => ({
     dialog: true,
+    title: null,
   }),
-  props:{
-    title: String
-  }
+  props: {
+    task: Array,
+  },
+  methods:{
+    functionEdit(){
+      this.$store.commit('editTask', {id: this.task.id, title: this.title})
+      this.$emit('dialogAction')
+    }
+  },
+  created() {
+    this.title = this.task.title;
+  },
 };
 </script>

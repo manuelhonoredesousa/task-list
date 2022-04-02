@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    /*  */
     tasks: [
       {
         id: 1,
@@ -22,9 +23,13 @@ export default new Vuex.Store({
         done: false,
       },
     ],
+    /*  */
+    editTemp: null,
+    editTempState: false,
   },
   getters: {},
   mutations: {
+    /*  */
     inserir(state, title) {
       if (title) {
         let i = Number(state.tasks.length);
@@ -36,9 +41,15 @@ export default new Vuex.Store({
         });
       }
     },
-    
+    /*  */
     deteleTask(state, id) {
       state.tasks = state.tasks.filter((tas) => tas.id !== id);
+    },
+    /*  */
+    editTask(state, editTas) {
+      let taskk = state.tasks.filter((task) => task.id == editTas.id)[0];
+
+      taskk.title = editTas.title;
     },
   },
   actions: {},
