@@ -36,6 +36,7 @@ export default new Vuex.Store({
         });
       }
     },
+    
     deteleTask(state, id) {
       state.tasks = state.tasks.filter((tas) => tas.id !== id);
     },

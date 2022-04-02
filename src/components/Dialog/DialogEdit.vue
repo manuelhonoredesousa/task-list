@@ -13,8 +13,8 @@
         ></v-text-field>
         <v-card-actions> 
           <v-spacer></v-spacer>
-          <v-btn text @click="dialog = false"> Cancelar </v-btn>
-          <v-btn color="primary" text @click="dialog = false">
+          <v-btn text @click="$emit('dialogState')"> Cancelar </v-btn>
+          <v-btn color="primary" text @click="$emit('dialogAction')">
             Actualizar
           </v-btn>
         </v-card-actions>

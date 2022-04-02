@@ -25,7 +25,7 @@
       </v-list-item-group>
     </v-list>
 
-    {{ settings }}
+   <!--  {{ settings }} -->
   </div>
 </template>
 

@@ -12,15 +12,25 @@
         <v-list-item
           v-for="(item, index) in items"
           :key="index"
-          @click="item.action()"
+          @click="item.choose()"
         >
           <v-icon :color="item.color" left>{{ item.icon }}</v-icon>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
-    <DialogEdit v-if="items[0].state" />
-    <DialogDelete v-if="items[1].state" />
+    <!--  -->
+    <DialogEdit
+      v-if="items[0].state"
+      @dialogState="items[0].state = false"
+      @dialogAction="edit()"
+    />
+    <!--  -->
+    <DialogDelete
+      v-if="items[1].state"
+      @dialogState="items[1].state = false"
+      @dialogAction="delet(taskID)"
+    />
   </div>
 </template>
 
@@ -41,8 +51,8 @@ export default {
         title: "Editar",
         color: "blue",
         state: false,
-        action() {
-          this.state = !this.state;
+        choose() {
+          this.state = true;
         },
       },
       {
@@ -50,15 +60,23 @@ export default {
         title: "Remover",
         color: "red",
         state: false,
-        action() {
-          this.state = !this.state;
+        choose() {
+          this.state = true;
         },
       },
     ],
   }),
+  props: {
+    taskID: Number,
+  },
+
   methods: {
-    removerTask(id) {
-      this.$store.commit("deteleTask", id);
+    delet(taskID) {
+      this.$store.commit("deteleTask", taskID);
+      this.items[1].state = false
+    },
+    edit() {
+      alert("EDITOU");
     },
   },
 };

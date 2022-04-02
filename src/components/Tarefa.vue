@@ -12,13 +12,12 @@
         <v-list-item-content>
           <v-list-item-title
             :class="{ 'text-decoration-line-through': change }"
-            >{{ task.id + "º - " + task.title }}</v-list-item-title
+            >{{ task.id + "º - " + task.title }}
+            </v-list-item-title
           >
         </v-list-item-content>
-
         <!-- MENU -->
-       <tarefa-menu />
-
+       <TarefaMenu :taskID="task.id" :taskTitle="task.title" />
       </template>
     </v-list-item>
     <v-divider />
