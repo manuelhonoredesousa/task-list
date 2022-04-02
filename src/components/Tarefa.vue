@@ -16,10 +16,9 @@
           >
         </v-list-item-content>
 
-        <!-- ICON -->
-        <v-btn icon @click.stop="removerTask(task.id)">
-          <v-icon color="red">mdi-trash-can</v-icon>
-        </v-btn>
+        <!-- MENU -->
+       <tarefa-menu />
+
       </template>
     </v-list-item>
     <v-divider />
@@ -27,17 +26,20 @@
 </template>
 
 <script>
+import TarefaMenu from '@/components/TarefaMenu.vue';
+
 export default {
   name: "Tarefa-App",
+  components:{
+    TarefaMenu
+  },
   data: () => ({
     state: String,
     change: Boolean,
   }),
   props: ["task"],
   methods: {
-    removerTask(id) {
-      this.$store.commit("deteleTask", id);
-    },
+    
   },
   mounted() {
     this.change = this.task.done;
