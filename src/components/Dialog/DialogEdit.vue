@@ -5,11 +5,13 @@
       <v-card>
         <v-card-title class="text-h5"> Editar Tarefa </v-card-title>
         <v-card-text>Insira a tarefa que substituirá a outra.</v-card-text>
+        <input type="text" :v-model="title">
         <v-text-field class="px-3"
           v-model="inputTask"
           label="Editar Tarefa"
           placeholder="Qual Tarefa Deseja Actualizar"
           outlined
+          
         ></v-text-field>
         <v-card-actions> 
           <v-spacer></v-spacer>
@@ -29,5 +31,8 @@ export default {
   data: () => ({
     dialog: true,
   }),
+  props:{
+    title: String
+  }
 };
 </script>

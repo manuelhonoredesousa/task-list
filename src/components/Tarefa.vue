@@ -17,7 +17,7 @@
           >
         </v-list-item-content>
         <!-- MENU -->
-       <TarefaMenu :taskID="task.id" :taskTitle="task.title" />
+       <TarefaMenu :task="task"/>
       </template>
     </v-list-item>
     <v-divider />

@@ -22,14 +22,15 @@
     <!--  -->
     <DialogEdit
       v-if="items[0].state"
+      :title="task.title"
       @dialogState="items[0].state = false"
-      @dialogAction="edit()"
+      @dialogAction="edit(task.title)"
     />
     <!--  -->
     <DialogDelete
       v-if="items[1].state"
       @dialogState="items[1].state = false"
-      @dialogAction="delet(taskID)"
+      @dialogAction="delet(task.id)"
     />
   </div>
 </template>
@@ -40,10 +41,6 @@ import DialogDelete from "@/components/Dialog/DialogDelete.vue";
 
 export default {
   name: "Tarefa-Menu",
-  components: {
-    DialogEdit,
-    DialogDelete,
-  },
   data: () => ({
     items: [
       {
@@ -66,17 +63,21 @@ export default {
       },
     ],
   }),
+  components: {
+    DialogEdit,
+    DialogDelete,
+  },
   props: {
-    taskID: Number,
+    task: Array,
   },
 
   methods: {
-    delet(taskID) {
-      this.$store.commit("deteleTask", taskID);
-      this.items[1].state = false
+    delet(id) {
+      this.$store.commit("deteleTask", id);
+      this.items[1].state = false;
     },
-    edit() {
-      alert("EDITOU");
+    edit(title) {
+      alert(title);
     },
   },
 };
