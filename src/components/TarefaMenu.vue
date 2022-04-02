@@ -8,8 +8,8 @@
 
     <v-list>
       <!-- TASK -->
-      <v-list-item v-for="(item, index) in items" :key="index">
-        <v-icon :color="item.color" left>{{ item.icone }}</v-icon>
+      <v-list-item v-for="(item, index) in items" :key="index" @click="item.action()">
+        <v-icon :color="item.color" left>{{ item.icon }}</v-icon>
         <v-list-item-title>{{ item.title }}</v-list-item-title>
         <!-- ICON -->
         <!-- <v-btn icon @click.stop="removerTask(task.id)">
@@ -21,19 +21,33 @@
 </template>
 
 <script>
+
+import DialogEdit from '@/components/Dialog/DialogEdit.vue'
+import DialogDelete from '@/components/Dialog/DialogDelete.vue'
+
 export default {
   name: "Tarefa-Menu",
+  components:{
+      DialogEdit,
+      DialogDelete
+  },
   data: () => ({
     items: [
       {
-        icone: "mdi-pencil",
+        icon: "mdi-pencil",
         title: "Editar",
         color: "blue",
+        action(){
+            alert('EDITAR')
+        }
       },
       {
-        icone: "mdi-trash-can",
+        icon: "mdi-trash-can",
         title: "Remover",
         color: "red",
+        action(){
+            alert('ELIMINAR')
+        }
       },
     ],
   }),
