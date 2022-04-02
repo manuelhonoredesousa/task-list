@@ -4,7 +4,7 @@
     <v-navigation-drawer
       v-model="drawer"
       app
-      color="red"
+      color="#0065a8"
       dark
     >
       <v-list-item>
@@ -36,7 +36,7 @@
       hide-on-scroll
       prominent
       scroll-target="#scrolling-techniques-4"
-      color="rgb(53, 52, 52)"
+      src="./assets/img/bg/menu.jpg"
       @click="drawer = !drawer"
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -69,3 +69,7 @@ export default {
 };
 </script>
 
+<style scoped>
+*{
+}
+</style>
