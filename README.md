@@ -1,4 +1,8 @@
-# task-list
+# task-list 
+
+(It's not finished and has some flaws)-> Open without download -> https://bit.ly/3IZibRv
+
+Otherwise
 
 ## Project setup
 ```
