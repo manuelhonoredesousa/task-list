@@ -1,6 +1,6 @@
 # task-list 
 
-(It's not finished and has some flaws)-> Open without download -> https://bit.ly/3IZibRv
+(It's not finished and has some flaws)-> Open without download ->  <a target="_blank" href="https://bit.ly/3IZibRv">Electrotan</a>
 
 Otherwise
 
